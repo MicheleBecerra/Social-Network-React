@@ -1,21 +1,27 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import firebase from 'firebase'
 import './index.css'
 import App from './App'
-import registerServiceWorker from './registerServiceWorker'
+import * as serviceWorker from './serviceWorker'
+import  createHistory from 'history/createBrowserHistory'
+import { createStore, applyMiddleware } from 'redux'
+import { Provider } from 'react-redux'
+import { routerMiddleware } from 'react-router-redux'
+import thunk from 'redux-thunk'
+import reducers from './reducers'
 
-firebase.initializeApp({
-  apiKey: 'AIzaSyBilTmXp2Lmrv2IS07xFDaM37kJRMOY8J8',
-  authDomain: 'social-network-react-2546b.firebaseapp.com',
-  databaseURL: 'https://social-network-react-2546b.firebaseio.com',
-  projectId: 'social-network-react-2546b',
-  storageBucket: 'social-network-react-2546b.appspot.com',
-  messagingSenderId: '378512322482'
-})
+const history = createHistory()
+const middleware = [ routerMiddleware(history), thunk ]
+const store = createStore(
+  reducers,
+  applyMiddleware(...middleware)
+)
 
 ReactDOM.render(
-  <App />,
+  <Provider store ={store}>
+    <App />
+  </Provider>
+  ,
   document.getElementById('root'))
 
-registerServiceWorker()
+serviceWorker.unregister()

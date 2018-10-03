@@ -1,24 +1,27 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+
 import './index.css'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
-import  createHistory from 'history/createBrowserHistory'
+
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
+import createHistory from 'history/createBrowserHistory'
 import { routerMiddleware } from 'react-router-redux'
 import thunk from 'redux-thunk'
 import reducers from './reducers'
 
 const history = createHistory()
+// se conecta el router con redux con  dos middelware history y thunk
 const middleware = [ routerMiddleware(history), thunk ]
 const store = createStore(
   reducers,
   applyMiddleware(...middleware)
 )
-
+// Provider es la conección con redux y react
 ReactDOM.render(
-  <Provider store ={store}>
+  <Provider store={store}>
     <App />
   </Provider>
   ,

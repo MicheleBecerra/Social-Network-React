@@ -15,6 +15,7 @@ import reducers from './reducers'
 const history = createHistory()
 // se conecta el router con redux con  dos middelware history y thunk
 const middleware = [ routerMiddleware(history), thunk ]
+// La store tiene todos los valores de la aplicación allí se pide la info
 const store = createStore(
   reducers,
   applyMiddleware(...middleware)
@@ -22,7 +23,7 @@ const store = createStore(
 // Provider es la conección con redux y react
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <App history={history} />
   </Provider>
   ,
   document.getElementById('root'))

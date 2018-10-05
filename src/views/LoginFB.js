@@ -1,24 +1,33 @@
 import React, { Component } from 'react'
 import FacebookLogin from 'react-facebook-login'
+import GoogleLogin from 'react-google-login'
 
 import './index.css'
 import 'materialize-css/dist/css/materialize.min.css'
 
 class LoginFB extends Component {
 // Se declaran los metodos que se usaran para la auteticaciñon de facebook.
-  constructor() {
+  constructor () {
     super()
+    this.state = {
+      isLogged: false
+    }
     this.responseFacebook = this.responseFacebook.bind(this)
+    this.responseGoogle = this.responseGoogle.bind(this)
     this.onFailure = this.onFailure.bind(this)
   }
-  responseFacebook(response) {
+  responseFacebook (response) {
     console.log(response)
-    //TODO
-
+    // TODO
+    this.setState({ isLogged: true })
   }
-  onFailure(error) {
+
+  responseGoogle (response) {
+    console.log(response)
+}
+
+  onFailure (error) {
     console.log(error)
-      
   }
 
   render () {
@@ -36,14 +45,20 @@ class LoginFB extends Component {
                 textButton='Facebook'
                 cssClass='waves-effect waves-light btn blue darken-3'
                 icon='fa fa-facebook'
-              />
-            
+              />          
               <br />
               <br />
-              <button className='waves-effect waves-light btn red accent-4' id='Google'>
-              Google
-                <i className='fa fa-google' aria-hidden='true' />
-              </button>
+              <GoogleLogin 
+                // clientId='393097308835-cps1kqn0dmbpq4m3j9p9306v37dg7tgg.apps.googleusercontent.com'
+                clientId='393097308835-9jlrq6eqtt4opj0cquuc8i8uq8qfr68u.apps.googleusercontent.com'
+                autoLoad={ false }
+                onSuccess= {this.responseGoogle}
+                onFailure={this.onFailure}
+                className='waves-effect waves-light btn red accent-4'>
+                <i className='fa fa-google' />
+                <span> Iniciar Sesión </span>
+              >
+              </GoogleLogin>
             </div>
           </div>
         </div>

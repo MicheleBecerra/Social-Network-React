@@ -2,8 +2,10 @@ import React, { Component } from 'react'
 import FacebookLogin from 'react-facebook-login'
 import GoogleLogin from 'react-google-login'
 import { Redirect } from 'react-router-dom'
+// import logo from '../views/logo.png'
 
 import './index.css'
+import logo from '../logo.png'
 import 'materialize-css/dist/css/materialize.min.css'
 
 class LoginFB extends Component {
@@ -30,6 +32,7 @@ class LoginFB extends Component {
       picture: response.picture.data.url,
       social: 'fb'
     }))
+
     this.setState({ isLogged: true })
   }
 
@@ -56,7 +59,8 @@ class LoginFB extends Component {
         <div className='Login-box'>
           <div className='card'>
             <div className='card-content'>
-
+            <img src={logo} className='App-logo' alt='logo' />
+            <h2>My Social Network </h2>
               <FacebookLogin
                 appId='2382997538383978'
                 autoload={false}
@@ -71,7 +75,7 @@ class LoginFB extends Component {
               <br />
               <GoogleLogin
 
-                clientId='393097308835-dj9p8q455kig817cdqtcpf2l6beshpn2.apps.googleusercontent.com'
+                clientId='393097308835-9jlrq6eqtt4opj0cquuc8i8uq8qfr68u.apps.googleusercontent.com'
                 autoLoad={false}
                 onSuccess={this.responseGoogle}
                 onFailure={this.onFailure}

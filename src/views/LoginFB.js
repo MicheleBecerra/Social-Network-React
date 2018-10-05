@@ -71,7 +71,7 @@ class LoginFB extends Component {
               <br />
               <GoogleLogin
 
-                clientId='393097308835-9jlrq6eqtt4opj0cquuc8i8uq8qfr68u.apps.googleusercontent.com'
+                clientId='393097308835-dj9p8q455kig817cdqtcpf2l6beshpn2.apps.googleusercontent.com'
                 autoLoad={false}
                 onSuccess={this.responseGoogle}
                 onFailure={this.onFailure}

@@ -1,0 +1,22 @@
+html, body{
+    width: 40%;
+    margin: 0;
+    overflow-x: hidden;
+    align-items: center;
+    justify-content: center;
+}
+
+.Login{
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+.Login-box{
+display: flex;
+flex-direction: column;  
+}
+.card-content{
+    display: flex;
+    flex-direction: column;
+}

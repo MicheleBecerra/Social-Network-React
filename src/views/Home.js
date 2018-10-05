@@ -9,6 +9,7 @@ class Home extends Component {
   // Se usa el método de ciclo de vida 
   componentWillMount() {
     this.props.getUsers()
+    // console.log(this.props)
   }
   render () {
     return (
@@ -27,10 +28,12 @@ function mapStateToProps(state) {
 }
 }
 
+// Se usa la función mapDispatch.. y se le manda como argumento dispatch y se importanbindActionsCreators a esta funcion se le pasa como argumento getUsers y dispatch. Se emite el evento y se llevan a cabo las acciones.
+
 function mapDispatchToProps(dispatch) {
   return bindActionCreators ({
     getUsers
   }, dispatch)
 }
-
+// los metodos se pasan al componente y los conectan con Home
 export default connect (mapStateToProps, mapDispatchToProps)(Home)

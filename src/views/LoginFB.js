@@ -70,24 +70,20 @@ class LoginFB extends Component {
                 textButton='Facebook'
                 cssClass='waves-effect waves-light btn blue darken-3'
                 icon='fa fa-facebook'/>
-            
-              
               <br />
               <GoogleLogin
-
-                clientId='393097308835-9jlrq6eqtt4opj0cquuc8i8uq8qfr68u.apps.googleusercontent.com'
+                clientId='393097308835-dj9p8q455kig817cdqtcpf2l6beshpn2.apps.googleusercontent.com'
                 autoLoad={false}
                 onSuccess={this.responseGoogle}
                 onFailure={this.onFailure}
                 className='waves-effect waves-light btn red accent-4'>
                 <i className='fa fa-google' />
                 <span> Iniciar Sesión </span>
-              >
               </GoogleLogin>
             </div>
           </div>
-        </div>
       </div>
+     </div> 
     )
   }
 }

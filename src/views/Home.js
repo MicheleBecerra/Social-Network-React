@@ -14,15 +14,17 @@ class Home extends Component {
   render () {
     return (
       <div className='Home'>
-        <nav className="nav-extended">
-          <div className="nav-wrapper">
-            <a className="brand-logo right">Logo</a>
-            <a data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
-            <ul id="nav-mobile" className="left hide-on-med-and-down">
-              <li className="active"> Perfil </li>
+        <nav className='nav-extended'>
+          <div className='nav-wrapper'>
+            <a className='brand-logo right'>Logo</a>
+            <a data-target='mobile-demo' className='sidenav-trigger'>
+              <i className='material-icons'>menu</i></a>
+            <ul id='nav-mobile' className='left hide-on-med-and-down'>
+              <li className='active'> Perfil </li>
             </ul>
           </div>
         </nav>
+
       </div>
     )
   }

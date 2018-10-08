@@ -57,10 +57,11 @@ class LoginFB extends Component {
     return (
       <div className='LoginFB' >
         <div className='Login-box'>
+          <img src={logo} className='App-logo' alt='logo' />
+          <h3>My Social Network </h3>
           <div className='card'>
-            <div className='card-content'>
-            <img src={logo} className='App-logo' alt='logo' />
-            <h2>My Social Network </h2>
+            <h4> Iniciar Sesión </h4>
+            <div className='card-content' >           
               <FacebookLogin
                 appId='2382997538383978'
                 autoload={false}
@@ -78,12 +79,12 @@ class LoginFB extends Component {
                 onFailure={this.onFailure}
                 className='waves-effect waves-light btn red accent-4'>
                 <i className='fa fa-google' />
-                <span> Iniciar Sesión </span>
+                <span> google </span>
               </GoogleLogin>
             </div>
           </div>
-      </div>
-     </div> 
+        </div>
+      </div> 
     )
   }
 }

@@ -4,11 +4,9 @@ html, body{
     overflow-x: hidden;
     align-items: center;
     justify-content: center;
-    background: #BA5370;  
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #F4E2D8, #BA5370);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #F4E2D8, #BA5370); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+    background: #1F1C2C;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #928DAB, #1F1C2C);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #928DAB, #1F1C2C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .Login{
@@ -22,12 +20,19 @@ display: flex;
 flex-direction: column;  
 align-items: center;
 justify-content: center;
+
 }
 .card-content{
     display: flex;
     flex-direction: column;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
 }
+.card{
+    padding: 1rem;
+  }
 .Home{
+    margin: 1%;
     width: 100%;
 }
 .Home nav{

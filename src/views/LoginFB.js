@@ -19,11 +19,11 @@ class LoginFB extends Component {
     this.responseGoogle = this.responseGoogle.bind(this)
     this.onFailure = this.onFailure.bind(this)
   }
-  // componentWillMount() {
-  //   if (localStorage.getItem("fbData") || localStorage.getItem ("googleData")) {
-  //     this.setState({ isLogged: true })
-  //   }
-  // }
+  componentWillMount() {
+    if (localStorage.getItem("fbData") || localStorage.getItem ("googleData")) {
+      this.setState({ isLogged: true })
+    }
+  }
   responseFacebook (response) {
     localStorage.setItem('fbData', JSON.stringify({
       token: response.token,

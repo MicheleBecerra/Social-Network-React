@@ -32,10 +32,25 @@ justify-content: center;
     padding: 1rem;
   }
 .Home{
+  
     margin: 1%;
     width: 100%;
 }
 .Home nav{
+    font-size: 1.0rem;
     width: 100%;
     padding: 10px; 
+}
+.Home-avatar{
+    width: 65px;
+    height: auto;
+    font-size: 10px;
+    margin-right: 250px;
+}
+.Home-logout {
+font-size: 2rem;
+}
+i {
+margin-right: 30px;
+padding: 10px;
 }

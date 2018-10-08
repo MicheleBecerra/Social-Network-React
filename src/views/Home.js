@@ -1,30 +1,56 @@
 import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { getUsers } from '../actions'
 
 import './index.css'
+import logo from '../logo.png'
 import 'materialize-css/dist/css/materialize.min.css'
 class Home extends Component {
+  // Se crea el constructor
+  constructor () {
+    super()
+    this.state = {
+      profileImage: '',
+      fullName: '',
+      isLogout: false
+    }
+    this.onLogout = this.onLogout.bind(this)
+  }
   // Se usa el método de ciclo de vida
   componentWillMount () {
-    this.props.getUsers()
-    // console.log(this.props)
+    let fbData = JSON.parse(localStorage.getItem('fbData'))
+    let googleData = JSON.parse(localStorage.getItem('googleData'))
+
+    if (fbData) {
+      this.setState({ profileImage: fbData.picture, fullName: fbData.name })
+    } else if (googleData) {
+      this.setState({ profileImage: googleData.picture, fullName: googleData.name })
+    }
+  // this.props.getUsers()
+  // console.log(this.props)
   }
+  onLogout(evento){
+    // Resetear los valores del local storage y redireccionar al inicio de la aplicacion.
+    localStorage.clear()
+
+  }
+ 
   render () {
     return (
       <div className='Home'>
         <nav className='nav-extended'>
           <div className='nav-wrapper'>
-            <a className='brand-logo right'>Logo</a>
-            <a data-target='mobile-demo' className='sidenav-trigger'>
-              <i className='material-icons'>menu</i></a>
+            <img className='circle Home-avatar right' src={this.state.profileImage} />
+            <a className='brand-logo right'>{this.state.fullName}</a>
             <ul id='nav-mobile' className='left hide-on-med-and-down'>
-              <li className='active'> Perfil </li>
+              <li>
+                <i  onClick={ this.onLogout }   className="Home-logout fa fa-power-off" />
+              </li>
             </ul>
           </div>
         </nav>
-
       </div>
     )
   }

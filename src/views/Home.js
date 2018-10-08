@@ -5,8 +5,8 @@ import { bindActionCreators } from 'redux'
 import { getUsers } from '../actions'
 
 import './index.css'
-import logo from '../logo.png'
 import 'materialize-css/dist/css/materialize.min.css'
+
 class Home extends Component {
   // Se crea el constructor
   constructor () {
@@ -31,22 +31,25 @@ class Home extends Component {
   // this.props.getUsers()
   // console.log(this.props)
   }
-  onLogout(evento){
+  onLogout(evento) {
     // Resetear los valores del local storage y redireccionar al inicio de la aplicacion.
     localStorage.clear()
-
+    this.setState({ isLogout: true })
   }
  
   render () {
+    if (this.state.isLogout) {
+      return (<Redirect to='/' />)
+    }
     return (
       <div className='Home'>
         <nav className='nav-extended'>
           <div className='nav-wrapper'>
             <img className='circle Home-avatar right' src={this.state.profileImage} />
             <a className='brand-logo right'>{this.state.fullName}</a>
-            <ul id='nav-mobile' className='left hide-on-med-and-down'>
+            <ul id='nav-mobile' className='left hide-on-and-down'>
               <li>
-                <i  onClick={ this.onLogout }   className="Home-logout fa fa-power-off" />
+                <i  onClick={ this.onLogout }   className='Home-logout fa fa-power-off' />
               </li>
             </ul>
           </div>

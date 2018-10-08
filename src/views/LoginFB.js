@@ -20,7 +20,7 @@ class LoginFB extends Component {
     this.onFailure = this.onFailure.bind(this)
   }
   // componentWillMount() {
-  //   if (localStorage.getItem("fbData") ||localStorage.getItem ("googleData")) {
+  //   if (localStorage.getItem("fbData") || localStorage.getItem ("googleData")) {
   //     this.setState({ isLogged: true })
   //   }
   // }
@@ -40,9 +40,11 @@ class LoginFB extends Component {
     localStorage.setItem('googleData', JSON.stringify({
       token: response.token,
       email: response.profileObj.email,
-      name: response.profileObj.imageUrl,
-      social: 'google'    
+      name: response.profileObj.name,
+      picture: response.profileObj.imageUrl,
+      social: 'google'      
     }))
+
     this.setState({ isLogged: true })
   }
 

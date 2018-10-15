@@ -1,3 +1,6 @@
 import { combineReducers } from 'redux'
+import { initial } from './initial'
 
-export default combineReducers({ })
+export default combineReducers({
+  initial
+})
